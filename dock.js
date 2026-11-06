@@ -698,7 +698,7 @@ export let Dock = GObject.registerClass(
         if (!path) return;
         let gjs = GLib.find_program_in_path('gjs') || '/usr/bin/gjs';
         Gio.Subprocess.new(
-          [gjs, '-m', `${path}/prefs-standalone.js`],
+          [gjs, '-m', `${path}/prefs-standalone.mjs`],
           Gio.SubprocessFlags.NONE
         );
       } catch (e) {

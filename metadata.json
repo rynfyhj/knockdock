@@ -4,7 +4,7 @@
   "uuid": "knockdock@casper.local",
   "version": 1,
   "version-name": "1.0.0",
-  "url": "https://www.gnome-look.org/",
+  "url": "https://github.com/rynfyhj/knockdock",
   "settings-schema": "org.gnome.shell.extensions.knockdock",
   "gettext-domain": "knockdock",
   "shell-version": [

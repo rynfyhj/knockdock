@@ -377,7 +377,7 @@ export default class KnockDockExtension extends Extension {
         let d = this.docks && this.docks[0];
         if (d) {
           console.log(
-            `knockdock: dock vis=${d.visible} op=${d.opacity} renderOp=${d.renderArea?.opacity} pos=${d.x},${d.y} size=${d.width}x${d.height} dash=${d.dash?.x},${d.dash?.y} ${d.dash?.width}x${d.dash?.height} icons=${d._icons ? d._icons.length : 'null'} struts=${d.struts ? d.struts.width + 'x' + d.struts.height : 'none'} chrome=${d._onChrome} parent=${d.get_parent()?.name}`
+            `knockdock: dock vis=${d.visible} op=${d.opacity} renderOp=${d.renderArea?.opacity} pos=${d.x},${d.y} size=${d.width}x${d.height} icons=${d._icons ? d._icons.length : 'null'} struts=${d.struts ? d.struts.width + 'x' + d.struts.height : 'none'} chrome=${d._onChrome} parent=${d.get_parent()?.name}`
           );
         }
       } catch(e) { console.log(`knockdock diag err ${e}`); }

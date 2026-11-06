@@ -4,7 +4,7 @@ import Meta from 'gi://Meta';
 
 import { DockPosition } from './dock.js';
 import {
-  get_distance_sqr,
+  dlog, get_distance_sqr,
   get_distance,
   isInRect,
   isOverlapRect,
@@ -28,11 +28,11 @@ const handledWindowTypes = [
 export let AutoHide = class {
   enable() {
     if (this._enabled) return;
-    // console.log('enable autohide');
+    // dlog('enable autohide');
     this._enabled = true;
     this._shown = true;
     this._dwell = 0;
-    console.log('autohide enabled');
+    dlog('autohide enabled');
   }
 
   disable() {
@@ -53,7 +53,7 @@ export let AutoHide = class {
       }
     });
 
-    console.log('autohide disabled');
+    dlog('autohide disabled');
   }
 
   _getScaleFactor() {
@@ -113,7 +113,7 @@ export let AutoHide = class {
         }
       }
 
-      // console.log(`${this._dwell} ${dwell_count} ${this.extension.pressure_sense_sensitivity}`);
+      // dlog(`${this._dwell} ${dwell_count} ${this.extension.pressure_sense_sensitivity}`);
 
       if (this._dwell > dwell_count) {
         this.show();
@@ -191,7 +191,7 @@ export let AutoHide = class {
   }
 
   _checkOverlap() {
-    // console.log("checking overlap...");
+    // dlog("checking overlap...");
     if (this.extension._inOverview) {
       return false;
     }
@@ -200,7 +200,7 @@ export let AutoHide = class {
       pointer = [...this.extension.simulated_pointer];
     }
 
-    // console.log(pointer);
+    // dlog(pointer);
 
     let pos = this.dock.struts.get_transformed_position();
     let rect = {
@@ -212,13 +212,13 @@ export let AutoHide = class {
     //! change to struts rect
     let arect = [rect.x, rect.y, rect.w, rect.h];
 
-    // console.log(arect);
+    // dlog(arect);
 
     if (!this.extension.autohide_dash) {
       return false;
     }
 
-    // console.log("checking pointer location...");
+    // dlog("checking pointer location...");
 
     if (this.dock._isWithinDash(pointer) || isInRect(arect, pointer)) {
       return false;
@@ -228,13 +228,13 @@ export let AutoHide = class {
       return true;
     }
 
-    // console.log("checking fullscreen...");
+    // dlog("checking fullscreen...");
 
     if (this.dock._monitor && this.dock._monitor.inFullscreen) {
       return true;
     }
 
-    // console.log("checking windows...");
+    // dlog("checking windows...");
 
     let monitor = this.dock._monitor;
     let actors = global.get_window_actors();
@@ -272,7 +272,7 @@ export let AutoHide = class {
 
     this.windows = windows;
 
-    // console.log(isOverlapped);
+    // dlog(isOverlapped);
     return isOverlapped;
   }
 

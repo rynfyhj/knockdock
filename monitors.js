@@ -1,5 +1,7 @@
 'use strict';
 
+import { dlog } from './utils.js';
+
 import Gio from 'gi://Gio';
 import GObject from 'gi://GObject';
 
@@ -44,6 +46,16 @@ export const MonitorsConfig = GObject.registerClass(
       );
 
       this._updateResources();
+
+      // cleanup helper for prefs close-request
+      this.destroy = () => {
+        try {
+          this._monitorsConfigProxy?.disconnectSignal?.('MonitorsChanged');
+        } catch (e) {}
+        this._monitorsConfigProxy = null;
+        this._monitors = [];
+        this._logicalMonitors = [];
+      };
     }
 
     _updateResources() {
@@ -103,8 +115,8 @@ export const MonitorsConfig = GObject.registerClass(
           this._primaryMonitor.active = true;
         }
 
-        // console.log(this._monitors);
-        // console.log(this._logicalMonitors);
+        // dlog(this._monitors);
+        // dlog(this._logicalMonitors);
         this.emit('updated');
       });
     }

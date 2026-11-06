@@ -1,3 +1,4 @@
+import { dlog } from '../utils.js';
 #!/usr/bin/env -S gjs -m
 
 import Gtk from 'gi://Gtk?version=4.0';
@@ -21,7 +22,7 @@ for (let i = 0; i < limit && i < items.length; i++) {
     );
     const icon = fileInfo.get_icon().get_names()[0] ?? 'folder';
     content += `${file.get_path()}|${icon}\n`;
-    // console.log(file.get_path());
+    // dlog(file.get_path());
   }
 }
 

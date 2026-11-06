@@ -1,3 +1,4 @@
+import { dlog } from '../utils.js';
 import GLib from 'gi://GLib';
 
 export let PrefKeys = class {
@@ -156,7 +157,7 @@ export let PrefKeys = class {
   }
 
   _toRGBA() {
-    console.log('implement me!');
+    dlog('implement me!');
     // implement @ patch
     return null;
   }

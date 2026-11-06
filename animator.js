@@ -19,7 +19,7 @@ import {
   QuadraticEaseOut,
 } from './effects/easing.js';
 import {
-  get_distance_sqr,
+  dlog, get_distance_sqr,
   get_distance,
   isInRect,
   isOverlapRect,
@@ -114,7 +114,7 @@ export let Animator = class {
     let simulation = false;
 
     if (!dock.layout()) {
-      console.log('unable to layout()');
+      dlog('unable to layout()');
       return;
     }
 
@@ -1115,7 +1115,7 @@ export let Animator = class {
           container._label.opacity = 0;
         }
       } catch (err) {
-        console.log(err);
+        dlog(err);
       }
     };
 
@@ -1143,7 +1143,7 @@ export let Animator = class {
               }
             }
           } catch (err) {
-            console.log(err);
+            dlog(err);
           }
           translateDecor(container, appwell);
         },
@@ -1170,7 +1170,7 @@ export let Animator = class {
               }
             }
           } catch (err) {
-            console.log(err);
+            dlog(err);
           }
           translateDecor(container, appwell);
         },
@@ -1201,7 +1201,7 @@ export let Animator = class {
             appwell._bounce = true;
             appwell.translation_y = 0;
           } catch (err) {
-            console.log(err);
+            dlog(err);
           }
           translateDecor(container, appwell);
         },
@@ -1214,7 +1214,7 @@ export let Animator = class {
           try {
             appwell._bounce = false;
           } catch (err) {
-            console.log(err);
+            dlog(err);
           }
         },
       },

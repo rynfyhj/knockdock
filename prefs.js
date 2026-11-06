@@ -22,7 +22,7 @@ import {
   ExtensionPreferences,
   gettext as _,
 } from './preferences/extensionPreferences.js';
-import { configPath, tempPath } from './utils.js';
+import { dlog, configPath, tempPath } from './utils.js';
 
 export default class Preferences extends ExtensionPreferences {
   constructor(metadata) {
@@ -90,11 +90,11 @@ export default class Preferences extends ExtensionPreferences {
       let folder = dialog.select_folder_finish(task);
       if (folder instanceof Gio.File) {
         let path = folder.get_path();
-        console.log(`${target} = ${path}`);
+        dlog(`${target} = ${path}`);
         settings.set_string(target, path);
         this.updateFolders(window, builder, settings);
       } else {
-        console.log('No valid folder selected.');
+        dlog('No valid folder selected.');
       }
     });
     return null;
@@ -114,7 +114,7 @@ export default class Preferences extends ExtensionPreferences {
             if (path) this.updateFolders(window, builder, settings);
           })
           .catch((err) => {
-            console.log(err);
+            dlog(err);
           });
       });
       settings.connect('changed::downloads-path', () => {
@@ -188,7 +188,7 @@ export default class Preferences extends ExtensionPreferences {
     window.set_modal(false);
     window.set_default_size(800, 600);
     window.set_size_request(640, 480);
-    // console.log(`>>${window.get_content()}`);
+    // dlog(`>>${window.get_content()}`);
     let builder = new Gtk.Builder();
     this._builder = builder;
 
@@ -232,6 +232,13 @@ export default class Preferences extends ExtensionPreferences {
 
     this._monitorsConfig = new MonitorsConfig();
     this._monitorsConfig.connect('updated', () => this.updateMonitors());
+
+    window.connect('close-request', () => {
+      try { this._monitorsConfig?.destroy?.(); } catch (e) {}
+      this._monitorsConfig = null;
+      this._builder = null;
+      return false;
+    });
     // settings.connect('changed::preferred-monitor', () => this.updateMonitors());
 
     this._themed_presets = [];
@@ -271,7 +278,7 @@ export default class Preferences extends ExtensionPreferences {
           }
         }
       } catch (err) {
-        console.log(`KnockDock: could not load theme ${fn.get_path()}: ${err}`);
+        dlog(`KnockDock: could not load theme ${fn.get_path()}: ${err}`);
       }
       f = iter.next_file(null);
     }
@@ -457,7 +464,7 @@ export default class Preferences extends ExtensionPreferences {
           }
           count++;
         } catch (err) {
-          console.log(`KnockDock: could not import ${name}: ${err}`);
+          dlog(`KnockDock: could not import ${name}: ${err}`);
         }
       });
     }

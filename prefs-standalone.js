@@ -1,6 +1,8 @@
 #!/usr/bin/env -S gjs -m
 'use strict';
 
+import { dlog } from './utils.js';
+
 import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
 import Adw from 'gi://Adw';
@@ -53,7 +55,7 @@ async function openPreferences() {
 
 app.connect('activate', () => {
   openPreferences().catch((err) => {
-    console.error(err);
+    dlog(err);
     app.quit();
   });
 });

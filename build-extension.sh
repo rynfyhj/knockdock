@@ -46,6 +46,7 @@ for dir in apps effects preferences schemas ui; do
   rsync -a \
     --exclude='legacy/' \
     --exclude='images/' \
+    --exclude='gschemas.compiled' \
     "$ROOT/$dir/" "$STAGE/$dir/"
 done
 

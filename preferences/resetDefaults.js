@@ -1,5 +1,7 @@
 'use strict';
 
+import { dlog } from '../utils.js';
+
 import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';
 
@@ -30,7 +32,7 @@ export function writeSettingsSnapshot(settings, path) {
     );
     return true;
   } catch (err) {
-    console.log(`knockdock: failed to write reset defaults: ${err}`);
+    dlog(`knockdock: failed to write reset defaults: ${err}`);
     return false;
   }
 }
@@ -59,7 +61,7 @@ export function applySettingsSnapshot(settings, snapshot) {
     try {
       settings.set_value(name, new GLib.Variant(entry.type, entry.value));
     } catch (err) {
-      console.log(`knockdock: failed to restore ${name}: ${err}`);
+      dlog(`knockdock: failed to restore ${name}: ${err}`);
     }
   });
   return true;

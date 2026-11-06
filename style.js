@@ -3,7 +3,7 @@
 import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
 import St from 'gi://St';
-import { tempPath } from './utils.js';
+import { dlog, tempPath } from './utils.js';
 
 export const Style = class {
   constructor() {
@@ -21,7 +21,7 @@ export const Style = class {
       try {
         fn.delete(null);
       } catch (err) {
-        console.log(err);
+        dlog(err);
       }
     });
   }
@@ -77,7 +77,7 @@ export const Style = class {
     if (g.length == 1) g += g;
     if (b.length == 1) b += b;
     let res = `#${r}${g}${b}`;
-    console.log(`${color} ${res}`);
+    dlog(`${color} ${res}`);
     return res;
   }
 };

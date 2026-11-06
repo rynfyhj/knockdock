@@ -1,7 +1,7 @@
 'use strict';
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
-import { tempPath, trySpawnCommandLine } from './utils.js';
+import { dlog, tempPath, trySpawnCommandLine } from './utils.js';
 // import { trySpawnCommandLine } from 'resource:///org/gnome/shell/misc/util.js';
 
 import Gio from 'gi://Gio';
@@ -411,7 +411,7 @@ export const Services = class {
   }
 
   async checkRecentFilesInFolder(path) {
-    console.log(`checking ${path}`);
+    dlog(`checking ${path}`);
     let maxs = [5, 8, 10, 12, 15, 20, 25];
     let max_recent_items = maxs[this.extension.max_recent_items || 0];
     let downloadFiles = [];
@@ -464,14 +464,14 @@ export const Services = class {
     });
 
     downloadFiles.splice(max_recent_items);
-    // console.log(downloadFiles);
+    // dlog(downloadFiles);
 
     return Promise.resolve([downloadFiles, downloadFilesLength]);
   }
 
   /*
   async _checkRecentFilesInFolder(path) {
-    console.log(`checking ${path}`);
+    dlog(`checking ${path}`);
     let maxs = [5, 10, 15, 20, 25];
     let max_recent_items = maxs[this.extension.max_recent_items || 0];
 
@@ -530,7 +530,7 @@ export const Services = class {
         // }
       }
     } catch (err) {
-      console.log(err);
+      dlog(err);
     }
 
     return [downloadFiles, downloadFilesLength];
@@ -538,7 +538,7 @@ export const Services = class {
   */
 
   async checkRecentFilesFromRecentManager() {
-    console.log('checking recent manager');
+    dlog('checking recent manager');
     let maxs = [5, 8, 10, 12, 15, 20, 25];
     let max_recent_items = maxs[this.extension.max_recent_items || 0];
 
@@ -550,7 +550,7 @@ export const Services = class {
         `/usr/bin/env -S gjs -m "${this.extension.path}/apps/recents.js"`
       );
     } catch (err) {
-      console.log(err);
+      dlog(err);
     }
 
     // const recentsPath = tempPath('recents.txt');
@@ -569,7 +569,7 @@ export const Services = class {
           if (res.length != 2) return;
           const file = Gio.File.new_for_path(res[0]);
           if (!file.query_exists(null)) {
-            console.log('not exists');
+            dlog('not exists');
             return;
           }
           if (recentFiles.length < max_recent_items) {
@@ -586,7 +586,7 @@ export const Services = class {
           recentFilesLength++;
         });
       } catch (err) {
-        console.log(err);
+        dlog(err);
       }
     }
 
@@ -599,7 +599,7 @@ export const Services = class {
     //   [this._recentFiles, this._recentFilesLength] =
     //     await this.checkRecentFilesFromRecentManager();
     // } catch (err) {
-    //   console.log(err);
+    //   dlog(err);
     // }
   }
 
@@ -625,7 +625,7 @@ export const Services = class {
       [this._downloadFiles, this._downloadFilesLength] =
         await this.checkRecentFilesInFolder(path);
     } catch (err) {
-      console.log(err);
+      dlog(err);
     }
   }
 

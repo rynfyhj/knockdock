@@ -3,7 +3,7 @@
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as BoxPointer from 'resource:///org/gnome/shell/ui/boxpointer.js';
 import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
-import { trySpawnCommandLine } from './utils.js';
+import { dlog, trySpawnCommandLine } from './utils.js';
 
 // import { trySpawnCommandLine } from 'resource:///org/gnome/shell/misc/util.js';
 
@@ -189,7 +189,7 @@ export const DockIcon = GObject.registerClass(
           try {
             container.showLabel();
           } catch (err) {
-            console.log(err);
+            dlog(err);
           }
         },
         'leave-event',
@@ -197,7 +197,7 @@ export const DockIcon = GObject.registerClass(
           try {
             container.hideLabel();
           } catch (err) {
-            console.log(err);
+            dlog(err);
           }
         },
         'button-press-event',
@@ -242,7 +242,7 @@ export const DockItemContainer = GObject.registerClass(
             Shell.AppSystem.get_default().get_installed()[0].constructor;
         } catch (err) {
           // should be unreachable
-          console.log(err);
+          dlog(err);
         }
         Main.overview.knockdock.DesktopAppInfo = DesktopAppInfo;
       }
@@ -276,8 +276,8 @@ export const DockItemContainer = GObject.registerClass(
         this.setLabelText(desktopApp.get_name());
         dashIcon._default_icon_name = desktopApp.get_icon().get_names()[0];
       } catch (err) {
-        console.log(err);
-        console.log(params);
+        dlog(err);
+        dlog(params);
       }
 
       // menu

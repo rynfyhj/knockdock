@@ -25,7 +25,7 @@ import { DockItemList } from './dockItemMenu.js';
 import { AutoHide } from './autohide.js';
 import { Animator } from './animator.js';
 import {
-  get_distance_sqr,
+  dlog, get_distance_sqr,
   get_distance,
   isInRect,
   isOverlapRect,
@@ -334,16 +334,16 @@ export let Dock = GObject.registerClass(
           let effect = null;
           try {
             effect = this._createEffect(this.extension.icon_effect);
-          } catch(e){ console.log(`knockdock: icon effect failed: ${e}`); }
+          } catch(e){ dlog(`knockdock: icon effect failed: ${e}`); }
           if (effect) {
             try {
               effect.color = this.extension.icon_effect_color;
               target.add_effect_with_name('icon-effect', effect);
-            } catch(e){ console.log(`knockdock: icon effect apply failed: ${e}`); }
+            } catch(e){ dlog(`knockdock: icon effect apply failed: ${e}`); }
           }
           target.iconEffect = effect;
         });
-      } catch(e){ console.log(`knockdock: _updateIconEffect failed: ${e}`); }
+      } catch(e){ dlog(`knockdock: _updateIconEffect failed: ${e}`); }
     }
 
     _updateIconEffectColor(color) {
@@ -354,7 +354,7 @@ export let Dock = GObject.registerClass(
             target.iconEffect.color = color;
           }
         } catch(err) {
-          // console.log(err)
+          // dlog(err)
         }
       });
     }
@@ -520,7 +520,7 @@ export let Dock = GObject.registerClass(
       if (upscale < 1) {
         upscale = 1; // does scaleFactor go beyond 2x?
       }
-      // console.log(`scaleFactor:${this._scaleFactor} upscale:${upscale}`);
+      // dlog(`scaleFactor:${this._scaleFactor} upscale:${upscale}`);
       iconSize =
         upscale *
         (preferredIconSizes[
@@ -1455,7 +1455,7 @@ export let Dock = GObject.registerClass(
       this._favorite_ids = Fav.getAppFavorites()._getIds();
 
       // if (caller) {
-      //   console.log(`animation triggered by ${caller}`);
+      //   dlog(`animation triggered by ${caller}`);
       // }
       if (this.extension._hiTimer && this.debounceEndSeq) {
         this.extension._loTimer.runDebounced(this.debounceEndSeq);
@@ -1579,11 +1579,7 @@ export let Dock = GObject.registerClass(
       if (focusedWindow) {
         this.extension._hiTimer.runOnce(() => {
           if (shift) {
-            if (
-              (focusedWindow.is_maximized && focusedWindow.is_maximized()) ||
-              (focusedWindow.get_maximized &&
-                focusedWindow.get_maximized() == 3)
-            ) {
+            if (focusedWindow.is_maximized && focusedWindow.is_maximized()) {
               focusedWindow.unmaximize(3);
             } else {
               focusedWindow.maximize(3);
@@ -1696,7 +1692,7 @@ export let Dock = GObject.registerClass(
       this._lastScrollEvent = evt;
       let pointer = global.get_pointer();
       let target = this._nearestIcon; // this._hoveredIcon;
-      // console.log(`${target == this._hoveredIcon}`);
+      // dlog(`${target == this._hoveredIcon}`);
       if (target) {
         if (this._scrollCounter < -2 || this._scrollCounter > 2)
           this._scrollCounter = 0;

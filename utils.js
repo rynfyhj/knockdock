@@ -2,6 +2,18 @@
 
 import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+
+/**
+ * Gated logger: only prints when the extension's "debug" setting is enabled.
+ * Keeps production builds free of excessive ungated console output.
+ */
+export function dlog(...args) {
+  try {
+    const ext = Main.extensionManager.lookup('knockdock@casper.local');
+    if (ext && ext.debug) console.log(...args);
+  } catch (e) {}
+}
 
 const pointer_wrapper = {
   get_position: () => {

@@ -27,7 +27,7 @@ import Shell from 'gi://Shell';
 import Graphene from 'gi://Graphene';
 import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
-import { tempPath, trySpawnCommandLine } from './utils.js';
+import { dlog, tempPath, trySpawnCommandLine } from './utils.js';
 import { configPath, loadFile } from './utils.js';
 
 import { Timer } from './timer.js';
@@ -125,7 +125,7 @@ export default class KnockDockExtension extends Extension {
 
   destroyDocks() {
     (this.docks || []).forEach((dock) => {
-      try { dock.undock(); } catch(e) { console.log(`knockdock: undock failed: ${e}`); }
+      try { dock.undock(); } catch(e) { dlog(`knockdock: undock failed: ${e}`); }
       try { dock.cancelAnimations(); } catch(e){}
       try { dock.destroyDash(); } catch(e){}
       try { if (dock.get_parent()) dock.get_parent().remove_child(dock); } catch(e){}
@@ -136,7 +136,7 @@ export default class KnockDockExtension extends Extension {
   }
 
   recreateAllDocks(delay = 750) {
-    // console.log('recreate all docks');
+    // dlog('recreate all docks');
 
     // recreate only the dash
     this.docks.forEach((d) => {
@@ -242,13 +242,13 @@ export default class KnockDockExtension extends Extension {
 
     this._addEvents();
     this._queryDisplay();
-    try { this.startUp(); } catch(e) { console.log(e); }
+    try { this.startUp(); } catch(e) { dlog(e); }
 
-    console.log('knockdock enabled');
+    dlog('knockdock enabled');
 
     // re-run after the async config load completes
     this._loTimer.runOnce(() => {
-      try { this.startUp(); } catch(e) { console.log(`knockdock: deferred startUp failed: ${e}`); }
+      try { this.startUp(); } catch(e) { dlog(`knockdock: deferred startUp failed: ${e}`); }
     }, 250);
   }
 
@@ -294,7 +294,7 @@ export default class KnockDockExtension extends Extension {
     this.icon_theme = null;
 
     Main.overview.knockdock = null;
-    console.log('knockdock disabled');
+    dlog('knockdock disabled');
   }
 
   animate(settings = {}) {
@@ -337,7 +337,7 @@ export default class KnockDockExtension extends Extension {
         return;
       }
     } catch(e) {}
-    try { this.createTheDocks(); } catch(e) { console.log(`knockdock: createTheDocks failed: ${e}`); }
+    try { this.createTheDocks(); } catch(e) { dlog(`knockdock: createTheDocks failed: ${e}`); }
     if (!this.docks || this.docks.length == 0) {
       try { this.createDock(); } catch(e) {}
     }
@@ -376,11 +376,11 @@ export default class KnockDockExtension extends Extension {
       try {
         let d = this.docks && this.docks[0];
         if (d) {
-          console.log(
+          dlog(
             `knockdock: dock vis=${d.visible} op=${d.opacity} renderOp=${d.renderArea?.opacity} pos=${d.x},${d.y} size=${d.width}x${d.height} icons=${d._icons ? d._icons.length : 'null'} struts=${d.struts ? d.struts.width + 'x' + d.struts.height : 'none'} chrome=${d._onChrome} parent=${d.get_parent()?.name}`
           );
         }
-      } catch(e) { console.log(`knockdock diag err ${e}`); }
+      } catch(e) { dlog(`knockdock diag err ${e}`); }
     }, 500);
   }
 
@@ -420,7 +420,7 @@ export default class KnockDockExtension extends Extension {
         const contents = await loadFile(fn_config);
         this._config = JSON.parse(contents);
       } catch (err) {
-        console.log(err);
+        dlog(err);
       }
 
       // precompute
@@ -460,7 +460,7 @@ export default class KnockDockExtension extends Extension {
             if (path.toLowerCase().endsWith('.svg')) {
               let file = Gio.File.new_for_path(configPath(path));
               if (file.query_exists(null)) {
-                console.log(`loading icon ${file.get_path()}`);
+                dlog(`loading icon ${file.get_path()}`);
                 this.icon_map_cache[k] = new Gio.FileIcon({ file: file });
               }
             }
@@ -474,14 +474,14 @@ export default class KnockDockExtension extends Extension {
             if (path.toLowerCase().endsWith('.svg')) {
               let file = Gio.File.new_for_path(configPath(path));
               if (file.query_exists(null)) {
-                console.log(`loading icon ${file.get_path()}`);
+                dlog(`loading icon ${file.get_path()}`);
                 this.app_map_cache[k] = new Gio.FileIcon({ file: file });
               }
             }
           });
         }
       } catch (err) {
-        console.log(err);
+        dlog(err);
       }
     }
 
@@ -519,7 +519,7 @@ export default class KnockDockExtension extends Extension {
         this
       );
     } catch (err) {
-      console.log(err);
+      dlog(err);
       this._interfaceSettings = null;
     }
 
@@ -531,7 +531,7 @@ export default class KnockDockExtension extends Extension {
       let n = name.replace(/-/g, '_');
       this[n] = value;
 
-      // console.log(`${n} ${value}`);
+      // dlog(`${n} ${value}`);
 
       switch (name) {
         case 'msg-to-ext': {
@@ -539,7 +539,7 @@ export default class KnockDockExtension extends Extension {
             try {
               eval(value);
             } catch (err) {
-              console.log(err);
+              dlog(err);
             }
             this._settings.set_string('msg-to-ext', '');
           }
@@ -725,7 +725,7 @@ export default class KnockDockExtension extends Extension {
       let key = this._settingsKeys.getKey(k);
       let name = k.replace(/-/g, '_');
       this[name] = key.value;
-      // console.log(`${name} = ${key.value}`);
+      // dlog(`${name} = ${key.value}`);
       if (key.options) {
         this[`${name}_options`] = key.options;
       }
@@ -782,10 +782,10 @@ export default class KnockDockExtension extends Extension {
       }
 
       if (migrated) {
-        console.log('knockdock: migrated settings from legacy extensions');
+        dlog('knockdock: migrated settings from legacy extensions');
       }
     } catch (err) {
-      console.log(`knockdock: settings migration failed: ${err}`);
+      dlog(`knockdock: settings migration failed: ${err}`);
     }
   }
 
@@ -967,7 +967,7 @@ export default class KnockDockExtension extends Extension {
     listeners.forEach((l) => {
       if (l._onFullScreen) l._onFullScreen();
     });
-    // console.log(`_onFullScreen ${f}`);
+    // dlog(`_onFullScreen ${f}`);
   }
 
   _onRestacked() {
@@ -1051,7 +1051,7 @@ export default class KnockDockExtension extends Extension {
       try {
         scheme = this._interfaceSettings.get_string('color-scheme') || 'light';
       } catch (err) {
-        console.log(err);
+        dlog(err);
       }
     } else if (Main.panel?.has_style_pseudo_class?.('dark')) {
       return 'dark';
@@ -1092,7 +1092,7 @@ export default class KnockDockExtension extends Extension {
   }
 
   _updateMultiMonitorPreference() {
-    // console.log('update monitors');
+    // dlog('update monitors');
     this.destroyDocks();
     this._loTimer.runOnce(() => {
       this.startUp();

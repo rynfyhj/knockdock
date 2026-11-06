@@ -697,10 +697,11 @@ export let Dock = GObject.registerClass(
         let path = this.extension.path || this.extension.dir?.get_path();
         if (!path) return;
         let gjs = GLib.find_program_in_path('gjs') || '/usr/bin/gjs';
-        Gio.Subprocess.new(
-          [gjs, '-m', `${path}/prefs-standalone.mjs`],
-          Gio.SubprocessFlags.NONE
-        );
+        let launcher = new Gio.SubprocessLauncher({
+          flags: Gio.SubprocessFlags.NONE,
+        });
+        launcher.setenv('KNOCKDOCK_PREFS_STANDALONE', '1', true);
+        launcher.spawnv([gjs, '-m', `${path}/prefs-standalone.mjs`]);
       } catch (e) {
         logError(e);
       }

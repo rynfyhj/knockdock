@@ -2,16 +2,28 @@
 
 import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';
-import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
 /**
  * Gated logger: only prints when the extension's "debug" setting is enabled.
  * Keeps production builds free of excessive ungated console output.
+ * Safe to call from standalone (prefs) processes where GNOME Shell modules
+ * are not available.
  */
 export function dlog(...args) {
   try {
-    const ext = Main.extensionManager.lookup('knockdock@casper.local');
-    if (ext && ext.debug) console.log(...args);
+    let Main = null;
+    try {
+      Main = (typeof imports !== 'undefined' && imports.ui) ? imports.ui.main : null;
+    } catch (e) {
+      Main = null;
+    }
+    if (Main && Main.extensionManager) {
+      const ext = Main.extensionManager.lookup('knockdock@casper.local');
+      if (ext && ext.debug) console.log(...args);
+      return;
+    }
+    // standalone fallback
+    if (GLib.getenv('KNOCKDOCK_DEBUG') === '1') console.log(...args);
   } catch (e) {}
 }
 

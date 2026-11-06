@@ -23,6 +23,7 @@ import {
   gettext as _,
 } from './preferences/extensionPreferences.js';
 import { dlog, configPath, tempPath } from './utils.js';
+import './prefs-standalone.mjs';
 
 export default class Preferences extends ExtensionPreferences {
   constructor(metadata) {

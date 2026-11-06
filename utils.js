@@ -18,7 +18,7 @@ export function dlog(...args) {
       Main = null;
     }
     if (Main && Main.extensionManager) {
-      const ext = Main.extensionManager.lookup('knockdock@casper.local');
+      const ext = Main.extensionManager.lookup('knockdock@rynfyhj');
       if (ext && ext.debug) console.log(...args);
       return;
     }

@@ -2,7 +2,7 @@
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import { dlog, tempPath, trySpawnCommandLine } from './utils.js';
-import './apps/recents.mjs';
+import './apps/recents';
 // import { trySpawnCommandLine } from 'resource:///org/gnome/shell/misc/util.js';
 
 import Gio from 'gi://Gio';
@@ -548,7 +548,7 @@ export const Services = class {
 
     try {
       await trySpawnCommandLine(
-        `/usr/bin/env KNOCKDOCK_RECENTS=1 gjs -m "${this.extension.path}/apps/recents.mjs"`
+        `/usr/bin/env KNOCKDOCK_RECENTS=1 gjs -m "${this.extension.path}/apps/recents"`
       );
     } catch (err) {
       dlog(err);

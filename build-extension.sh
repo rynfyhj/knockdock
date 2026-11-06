@@ -16,7 +16,7 @@ ROOT_FILES=(
   metadata.json
   extension.js
   prefs.js
-  prefs-standalone.mjs
+  prefs-standalone
   stylesheet.css
   LICENSE
   README.md

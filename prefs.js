@@ -23,7 +23,7 @@ import {
   gettext as _,
 } from './preferences/extensionPreferences.js';
 import { dlog, configPath, tempPath } from './utils.js';
-import './prefs-standalone.mjs';
+import './prefs-standalone';
 
 export default class Preferences extends ExtensionPreferences {
   constructor(metadata) {
@@ -157,7 +157,7 @@ export default class Preferences extends ExtensionPreferences {
       });
       launcher.setenv('KNOCKDOCK_PREFS_STANDALONE', '1', true);
       let gjs = GLib.find_program_in_path('gjs') || '/usr/bin/gjs';
-      launcher.spawnv([gjs, '-m', `${this.path}/prefs-standalone.mjs`]);
+      launcher.spawnv([gjs, '-m', `${this.path}/prefs-standalone`]);
     } catch (err) {
       logError(err);
       return false;

@@ -701,7 +701,7 @@ export let Dock = GObject.registerClass(
           flags: Gio.SubprocessFlags.NONE,
         });
         launcher.setenv('KNOCKDOCK_PREFS_STANDALONE', '1', true);
-        launcher.spawnv([gjs, '-m', `${path}/prefs-standalone.mjs`]);
+        launcher.spawnv([gjs, '-m', `${path}/prefs-standalone`]);
       } catch (e) {
         logError(e);
       }

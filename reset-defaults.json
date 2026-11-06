@@ -1,0 +1,510 @@
+{
+  "overview-transparent-background": {
+    "type": "b",
+    "value": false
+  },
+  "autohide-dash": {
+    "type": "b",
+    "value": false
+  },
+  "animate-icons-unmute": {
+    "type": "b",
+    "value": true
+  },
+  "theme": {
+    "type": "i",
+    "value": 0
+  },
+  "lamp-app-animation": {
+    "type": "b",
+    "value": true
+  },
+  "icon-border-thickness": {
+    "type": "i",
+    "value": 0
+  },
+  "debug-visual": {
+    "type": "b",
+    "value": false
+  },
+  "debug": {
+    "type": "b",
+    "value": false
+  },
+  "msg-to-pref": {
+    "type": "s",
+    "value": ""
+  },
+  "label-border-radius": {
+    "type": "d",
+    "value": 1.9836734693877554
+  },
+  "topbar-foreground-color": {
+    "type": "(dddd)",
+    "value": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "icon-effect-color": {
+    "type": "(dddd)",
+    "value": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "border-color": {
+    "type": "(dddd)",
+    "value": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "dock-padding": {
+    "type": "d",
+    "value": 0.5
+  },
+  "trash-icon": {
+    "type": "b",
+    "value": false
+  },
+  "animation-type": {
+    "type": "i",
+    "value": 0
+  },
+  "calendar-style": {
+    "type": "i",
+    "value": 0
+  },
+  "notification-badge-style": {
+    "type": "i",
+    "value": 1
+  },
+  "downloads-icon-rotate-labels": {
+    "type": "b",
+    "value": false
+  },
+  "magic-lamp-effect": {
+    "type": "i",
+    "value": 1
+  },
+  "topbar-border-color": {
+    "type": "(dddd)",
+    "value": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "animation-rise": {
+    "type": "d",
+    "value": 0.25
+  },
+  "documents-path": {
+    "type": "s",
+    "value": ""
+  },
+  "open-app-animation": {
+    "type": "b",
+    "value": true
+  },
+  "overview-transparent-topbar-background": {
+    "type": "b",
+    "value": false
+  },
+  "animate-icons": {
+    "type": "b",
+    "value": true
+  },
+  "animation-bounce-height": {
+    "type": "d",
+    "value": 0.75
+  },
+  "calendar-icon": {
+    "type": "b",
+    "value": false
+  },
+  "blur-resolution": {
+    "type": "i",
+    "value": 0
+  },
+  "border-radius": {
+    "type": "d",
+    "value": 3
+  },
+  "icon-size": {
+    "type": "d",
+    "value": 0
+  },
+  "icon-border-radius": {
+    "type": "d",
+    "value": 3
+  },
+  "drawing-secondary-color": {
+    "type": "(dddd)",
+    "value": [
+      1,
+      0.6,
+      0,
+      1
+    ]
+  },
+  "downloads-path": {
+    "type": "s",
+    "value": "/home/casper/İndirilenler"
+  },
+  "items-pullout-angle": {
+    "type": "d",
+    "value": 0.5
+  },
+  "icon-background-color": {
+    "type": "(dddd)",
+    "value": [
+      1,
+      1,
+      1,
+      0
+    ]
+  },
+  "favorites-only": {
+    "type": "b",
+    "value": false
+  },
+  "animation-magnify": {
+    "type": "d",
+    "value": 0.3
+  },
+  "magic-lamp-duration": {
+    "type": "d",
+    "value": 382
+  },
+  "customize-topbar": {
+    "type": "b",
+    "value": true
+  },
+  "apps-icon": {
+    "type": "b",
+    "value": true
+  },
+  "animation-spread": {
+    "type": "d",
+    "value": 0.75
+  },
+  "label-background-color": {
+    "type": "(dddd)",
+    "value": [
+      0,
+      0,
+      0,
+      0.25
+    ]
+  },
+  "monitor-count": {
+    "type": "i",
+    "value": 1
+  },
+  "animation-fps": {
+    "type": "i",
+    "value": 0
+  },
+  "running-indicator-style": {
+    "type": "i",
+    "value": 1
+  },
+  "notification-badge-color": {
+    "type": "(dddd)",
+    "value": [
+      0.9647058844566345,
+      0.8196078538894653,
+      0.04313727095723152,
+      1
+    ]
+  },
+  "panel-mode": {
+    "type": "b",
+    "value": false
+  },
+  "label-border-color": {
+    "type": "(dddd)",
+    "value": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "border-thickness": {
+    "type": "i",
+    "value": 0
+  },
+  "icon-spacing": {
+    "type": "d",
+    "value": 0.5
+  },
+  "autohide-speed": {
+    "type": "d",
+    "value": 0.5
+  },
+  "pressure-sense-sensitivity": {
+    "type": "d",
+    "value": 0.4
+  },
+  "icon-resolution": {
+    "type": "i",
+    "value": 0
+  },
+  "peek-hidden-icons": {
+    "type": "b",
+    "value": false
+  },
+  "debug-log": {
+    "type": "b",
+    "value": false
+  },
+  "animation-rise-curve": {
+    "type": "i",
+    "value": 0
+  },
+  "documents-icon": {
+    "type": "b",
+    "value": false
+  },
+  "magic-lamp-y-tiles": {
+    "type": "d",
+    "value": 10
+  },
+  "clock-style": {
+    "type": "i",
+    "value": 0
+  },
+  "msg-to-ext": {
+    "type": "s",
+    "value": ""
+  },
+  "drawing-dark-foreground": {
+    "type": "(dddd)",
+    "value": [
+      0.8,
+      0.8,
+      0.8,
+      1
+    ]
+  },
+  "magic-lamp-x-tiles": {
+    "type": "d",
+    "value": 10
+  },
+  "topbar-blur-background": {
+    "type": "b",
+    "value": false
+  },
+  "icon-border-color": {
+    "type": "(dddd)",
+    "value": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "running-indicator-color": {
+    "type": "(dddd)",
+    "value": [
+      0.9666666388511658,
+      0.818702220916748,
+      0.04188890382647514,
+      1
+    ]
+  },
+  "label-foreground-color": {
+    "type": "(dddd)",
+    "value": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "separator-thickness": {
+    "type": "i",
+    "value": 0
+  },
+  "customize-label": {
+    "type": "b",
+    "value": true
+  },
+  "animation-bounce-frequency": {
+    "type": "i",
+    "value": 0
+  },
+  "downloads-icon": {
+    "type": "b",
+    "value": false
+  },
+  "disable-blur-at-overview": {
+    "type": "b",
+    "value": true
+  },
+  "shrink-icons": {
+    "type": "b",
+    "value": true
+  },
+  "apps-icon-front": {
+    "type": "b",
+    "value": true
+  },
+  "magic-lamp-enabled": {
+    "type": "b",
+    "value": true
+  },
+  "mounted-icon": {
+    "type": "b",
+    "value": false
+  },
+  "multi-monitor-filter": {
+    "type": "i",
+    "value": 1
+  },
+  "edge-distance": {
+    "type": "d",
+    "value": 0
+  },
+  "drawing-light-color": {
+    "type": "(dddd)",
+    "value": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "running-indicator-size": {
+    "type": "i",
+    "value": 0
+  },
+  "topbar-border-thickness": {
+    "type": "i",
+    "value": 0
+  },
+  "separator-color": {
+    "type": "(dddd)",
+    "value": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "icon-shadow": {
+    "type": "b",
+    "value": false
+  },
+  "drawing-dark-color": {
+    "type": "(dddd)",
+    "value": [
+      0.2,
+      0.2,
+      0.2,
+      1
+    ]
+  },
+  "max-recent-items": {
+    "type": "i",
+    "value": 0
+  },
+  "pressure-sense": {
+    "type": "b",
+    "value": false
+  },
+  "autohide-dodge": {
+    "type": "b",
+    "value": true
+  },
+  "topbar-background-color": {
+    "type": "(dddd)",
+    "value": [
+      0,
+      0,
+      0,
+      0.25
+    ]
+  },
+  "preferred-monitor": {
+    "type": "i",
+    "value": 0
+  },
+  "drawing-light-foreground": {
+    "type": "(dddd)",
+    "value": [
+      0.3,
+      0.3,
+      0.3,
+      1
+    ]
+  },
+  "drawing-accent-color": {
+    "type": "(dddd)",
+    "value": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  "hide-labels": {
+    "type": "b",
+    "value": false
+  },
+  "scroll-sensitivity": {
+    "type": "d",
+    "value": 0.4
+  },
+  "notification-badge-size": {
+    "type": "i",
+    "value": 0
+  },
+  "icon-effect": {
+    "type": "i",
+    "value": 0
+  },
+  "blur-background": {
+    "type": "b",
+    "value": false
+  },
+  "multi-monitor-preference": {
+    "type": "i",
+    "value": 0
+  },
+  "clock-icon": {
+    "type": "b",
+    "value": false
+  },
+  "dock-location": {
+    "type": "i",
+    "value": 0
+  },
+  "background-color": {
+    "type": "(dddd)",
+    "value": [
+      0,
+      0,
+      0,
+      0.25
+    ]
+  },
+  "experimental-features": {
+    "type": "b",
+    "value": false
+  },
+  "label-border-thickness": {
+    "type": "i",
+    "value": 0
+  }
+}

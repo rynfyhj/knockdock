@@ -1,0 +1,14 @@
+# Build output
+dist/
+*.zip
+schemas/gschemas.compiled
+
+# Editor / OS files
+.vscode/
+.idea/
+*.swp
+*~
+
+# Python / tooling caches
+__pycache__/
+*.pyc

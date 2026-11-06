@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+UUID="knockdock@casper.local"
+EXT_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/gnome-shell/extensions/$UUID"
+exec gjs -m "$EXT_DIR/prefs-standalone.js" "$@"

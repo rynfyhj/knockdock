@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <object class="AdwPreferencesPage" id="effects">
+    <property name="name">effects</property>
+    <property name="title" translatable="yes">Effects</property>
+    <property name="icon-name">applications-graphics-symbolic</property>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="title" translatable="yes">Magic Lamp</property>
+        <property name="description" translatable="yes">Animate windows while minimizing and restoring them.</property>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Enable Magic Lamp</property>
+            <property name="subtitle" translatable="yes">Apply the genie effect when a window is minimized or unminimized.</property>
+            <property name="activatable-widget">magic-lamp-enabled</property>
+            <child>
+              <object class="GtkSwitch" id="magic-lamp-enabled">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Target Dock Icon</property>
+            <property name="subtitle" translatable="yes">Animate toward the app icon in the dock. Disable to use the bottom of the screen.</property>
+            <property name="activatable-widget">lamp-app-animation</property>
+            <child>
+              <object class="GtkSwitch" id="lamp-app-animation">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="title" translatable="yes">Magic Lamp Tuning</property>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Effect Style</property>
+            <property name="subtitle" translatable="yes">Choose the deformation style of the animation.</property>
+            <property name="activatable-widget">magic-lamp-effect</property>
+            <child>
+              <object class="GtkDropDown" id="magic-lamp-effect">
+                <property name="valign">center</property>
+                <property name="model">magic-lamp-effect-model</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Duration (ms)</property>
+            <property name="subtitle" translatable="yes">Base duration of the animation.</property>
+            <property name="activatable-widget">magic-lamp-duration</property>
+            <child>
+              <object class="GtkScale" id="magic-lamp-duration">
+                <property name="valign">center</property>
+                <property name="hexpand">true</property>
+                <property name="width-request">180px</property>
+                <property name="draw-value">true</property>
+                <property name="value-pos">right</property>
+                <property name="orientation">horizontal</property>
+                <property name="digits">0</property>
+                <property name="adjustment">magic-lamp-duration-adjust</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Horizontal Tiles</property>
+            <property name="subtitle" translatable="yes">Horizontal deformation grid resolution.</property>
+            <property name="activatable-widget">magic-lamp-x-tiles</property>
+            <child>
+              <object class="GtkScale" id="magic-lamp-x-tiles">
+                <property name="valign">center</property>
+                <property name="hexpand">true</property>
+                <property name="width-request">180px</property>
+                <property name="draw-value">true</property>
+                <property name="value-pos">right</property>
+                <property name="orientation">horizontal</property>
+                <property name="digits">0</property>
+                <property name="adjustment">magic-lamp-x-tiles-adjust</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Vertical Tiles</property>
+            <property name="subtitle" translatable="yes">Vertical deformation grid resolution.</property>
+            <property name="activatable-widget">magic-lamp-y-tiles</property>
+            <child>
+              <object class="GtkScale" id="magic-lamp-y-tiles">
+                <property name="valign">center</property>
+                <property name="hexpand">true</property>
+                <property name="width-request">180px</property>
+                <property name="draw-value">true</property>
+                <property name="value-pos">right</property>
+                <property name="orientation">horizontal</property>
+                <property name="digits">0</property>
+                <property name="adjustment">magic-lamp-y-tiles-adjust</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkStringList" id="magic-lamp-effect-model">
+    <items>
+      <item translatable="yes">Default</item>
+      <item translatable="yes">Sine</item>
+    </items>
+  </object>
+  <object class="GtkAdjustment" id="magic-lamp-duration-adjust">
+    <property name="lower">100.0</property>
+    <property name="upper">1000.0</property>
+    <property name="step-increment">10.0</property>
+    <property name="page-increment">50.0</property>
+  </object>
+  <object class="GtkAdjustment" id="magic-lamp-x-tiles-adjust">
+    <property name="lower">3.0</property>
+    <property name="upper">50.0</property>
+    <property name="step-increment">1.0</property>
+  </object>
+  <object class="GtkAdjustment" id="magic-lamp-y-tiles-adjust">
+    <property name="lower">3.0</property>
+    <property name="upper">50.0</property>
+    <property name="step-increment">1.0</property>
+  </object>
+</interface>

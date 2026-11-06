@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=KnockDock Settings
+Name[tr]=KnockDock Ayarları
+Comment=Configure the KnockDock dock and animations
+Comment[tr]=KnockDock dock ve animasyonlarını yapılandır
+Exec=/home/casper/.local/bin/knockdock-prefs
+Icon=org.gnome.Settings
+Terminal=false
+Categories=Settings;DesktopSettings;GTK;
+StartupNotify=true
+StartupWMClass=local.casper.KnockDock.Preferences

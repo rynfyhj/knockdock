@@ -31,10 +31,6 @@
     "type": "b",
     "value": false
   },
-  "msg-to-pref": {
-    "type": "s",
-    "value": ""
-  },
   "label-border-radius": {
     "type": "d",
     "value": 1.9836734693877554
@@ -42,33 +38,33 @@
   "topbar-foreground-color": {
     "type": "(dddd)",
     "value": [
-      1,
-      1,
-      1,
-      1
+      1.0,
+      1.0,
+      1.0,
+      1.0
     ]
   },
   "icon-effect-color": {
     "type": "(dddd)",
     "value": [
-      1,
-      1,
-      1,
-      1
+      0.0,
+      0.0,
+      0.0,
+      0.07939188927412033
     ]
   },
   "border-color": {
     "type": "(dddd)",
     "value": [
-      1,
-      1,
-      1,
-      1
+      1.0,
+      1.0,
+      1.0,
+      1.0
     ]
   },
   "dock-padding": {
     "type": "d",
-    "value": 0.5
+    "value": 1.0
   },
   "trash-icon": {
     "type": "b",
@@ -92,20 +88,20 @@
   },
   "magic-lamp-effect": {
     "type": "i",
-    "value": 1
+    "value": 0
   },
   "topbar-border-color": {
     "type": "(dddd)",
     "value": [
-      1,
-      1,
-      1,
-      1
+      1.0,
+      1.0,
+      1.0,
+      1.0
     ]
   },
   "animation-rise": {
     "type": "d",
-    "value": 0.25
+    "value": 0.2
   },
   "documents-path": {
     "type": "s",
@@ -125,7 +121,7 @@
   },
   "animation-bounce-height": {
     "type": "d",
-    "value": 0.75
+    "value": 0.3
   },
   "calendar-icon": {
     "type": "b",
@@ -137,28 +133,28 @@
   },
   "border-radius": {
     "type": "d",
-    "value": 3
+    "value": 3.0
   },
   "icon-size": {
     "type": "d",
-    "value": 0
+    "value": 0.0
   },
   "icon-border-radius": {
     "type": "d",
-    "value": 3
+    "value": 3.0
   },
   "drawing-secondary-color": {
     "type": "(dddd)",
     "value": [
-      1,
+      1.0,
       0.6,
-      0,
-      1
+      0.0,
+      1.0
     ]
   },
   "downloads-path": {
     "type": "s",
-    "value": "/home/casper/İndirilenler"
+    "value": ""
   },
   "items-pullout-angle": {
     "type": "d",
@@ -167,10 +163,10 @@
   "icon-background-color": {
     "type": "(dddd)",
     "value": [
-      1,
-      1,
-      1,
-      0
+      1.0,
+      1.0,
+      1.0,
+      0.0
     ]
   },
   "favorites-only": {
@@ -183,7 +179,7 @@
   },
   "magic-lamp-duration": {
     "type": "d",
-    "value": 382
+    "value": 300.0
   },
   "customize-topbar": {
     "type": "b",
@@ -200,9 +196,9 @@
   "label-background-color": {
     "type": "(dddd)",
     "value": [
-      0,
-      0,
-      0,
+      0.0,
+      0.0,
+      0.0,
       0.25
     ]
   },
@@ -224,7 +220,7 @@
       0.9647058844566345,
       0.8196078538894653,
       0.04313727095723152,
-      1
+      1.0
     ]
   },
   "panel-mode": {
@@ -234,10 +230,10 @@
   "label-border-color": {
     "type": "(dddd)",
     "value": [
-      1,
-      1,
-      1,
-      1
+      1.0,
+      1.0,
+      1.0,
+      1.0
     ]
   },
   "border-thickness": {
@@ -246,7 +242,7 @@
   },
   "icon-spacing": {
     "type": "d",
-    "value": 0.5
+    "value": 0.3228346456692913
   },
   "autohide-speed": {
     "type": "d",
@@ -270,7 +266,7 @@
   },
   "animation-rise-curve": {
     "type": "i",
-    "value": 0
+    "value": 1
   },
   "documents-icon": {
     "type": "b",
@@ -278,15 +274,11 @@
   },
   "magic-lamp-y-tiles": {
     "type": "d",
-    "value": 10
+    "value": 10.0
   },
   "clock-style": {
     "type": "i",
     "value": 0
-  },
-  "msg-to-ext": {
-    "type": "s",
-    "value": ""
   },
   "drawing-dark-foreground": {
     "type": "(dddd)",
@@ -294,12 +286,12 @@
       0.8,
       0.8,
       0.8,
-      1
+      1.0
     ]
   },
   "magic-lamp-x-tiles": {
     "type": "d",
-    "value": 10
+    "value": 20.0
   },
   "topbar-blur-background": {
     "type": "b",
@@ -308,10 +300,10 @@
   "icon-border-color": {
     "type": "(dddd)",
     "value": [
-      1,
-      1,
-      1,
-      1
+      1.0,
+      1.0,
+      1.0,
+      1.0
     ]
   },
   "running-indicator-color": {
@@ -320,16 +312,16 @@
       0.9666666388511658,
       0.818702220916748,
       0.04188890382647514,
-      1
+      1.0
     ]
   },
   "label-foreground-color": {
     "type": "(dddd)",
     "value": [
-      1,
-      1,
-      1,
-      1
+      1.0,
+      1.0,
+      1.0,
+      1.0
     ]
   },
   "separator-thickness": {
@@ -374,15 +366,15 @@
   },
   "edge-distance": {
     "type": "d",
-    "value": 0
+    "value": 0.6631578947368422
   },
   "drawing-light-color": {
     "type": "(dddd)",
     "value": [
-      1,
-      1,
-      1,
-      1
+      1.0,
+      1.0,
+      1.0,
+      1.0
     ]
   },
   "running-indicator-size": {
@@ -396,10 +388,10 @@
   "separator-color": {
     "type": "(dddd)",
     "value": [
-      1,
-      1,
-      1,
-      1
+      1.0,
+      1.0,
+      1.0,
+      0.1133333370089531
     ]
   },
   "icon-shadow": {
@@ -412,7 +404,7 @@
       0.2,
       0.2,
       0.2,
-      1
+      1.0
     ]
   },
   "max-recent-items": {
@@ -425,14 +417,14 @@
   },
   "autohide-dodge": {
     "type": "b",
-    "value": true
+    "value": false
   },
   "topbar-background-color": {
     "type": "(dddd)",
     "value": [
-      0,
-      0,
-      0,
+      0.0,
+      0.0,
+      0.0,
       0.25
     ]
   },
@@ -446,16 +438,16 @@
       0.3,
       0.3,
       0.3,
-      1
+      1.0
     ]
   },
   "drawing-accent-color": {
     "type": "(dddd)",
     "value": [
-      1,
-      0,
-      0,
-      1
+      1.0,
+      0.0,
+      0.0,
+      1.0
     ]
   },
   "hide-labels": {
@@ -472,7 +464,7 @@
   },
   "icon-effect": {
     "type": "i",
-    "value": 0
+    "value": 1
   },
   "blur-background": {
     "type": "b",
@@ -480,7 +472,7 @@
   },
   "multi-monitor-preference": {
     "type": "i",
-    "value": 0
+    "value": 1
   },
   "clock-icon": {
     "type": "b",
@@ -493,9 +485,9 @@
   "background-color": {
     "type": "(dddd)",
     "value": [
-      0,
-      0,
-      0,
+      0.0,
+      0.0,
+      0.0,
       0.25
     ]
   },

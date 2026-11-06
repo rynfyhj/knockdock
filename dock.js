@@ -196,7 +196,11 @@ export let Dock = GObject.registerClass(
       }
       this.animator.enable();
       this.addToChrome();
-      try { this.show(); this.visible = true; this.opacity = 255; this.reactive = true; this.set_opacity && this.set_opacity(255); this.raise && this.raise(); this.raise_top && this.raise_top(); } catch(e){}
+      // Keep the container non-reactive: its allocation is taller than the
+      // visible dock to fit magnified icons, and making it reactive makes that
+      // transparent strip swallow clicks meant for windows underneath it.
+      // The dash and the icons handle input themselves.
+      try { this.show(); this.visible = true; this.opacity = 255; this.reactive = false; this.set_opacity && this.set_opacity(255); this.raise && this.raise(); this.raise_top && this.raise_top(); } catch(e){}
       try { this.layout(true); } catch(e){}
       try { this.show(); this.visible = true; this.opacity = 255; this.set_opacity && this.set_opacity(255); this.raise && this.raise(); } catch(e){}
       try { this.renderArea.opacity = 255; } catch(e){}

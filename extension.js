@@ -345,7 +345,7 @@ export default class KnockDockExtension extends Extension {
       (this.docks || []).forEach((d) => {
         try { if (d.removeFromChrome) d.removeFromChrome(); } catch(e){}
         try { if (d.addToChrome) d.addToChrome(); } catch(e){}
-        try { d.show(); d.visible = true; d.opacity = 255; d.reactive = true; d.set_opacity && d.set_opacity(255); d.raise && d.raise(); } catch(e){}
+        try { d.show(); d.visible = true; d.opacity = 255; d.reactive = false; d.set_opacity && d.set_opacity(255); d.raise && d.raise(); } catch(e){}
         try { if (d.renderArea) d.renderArea.opacity = 255; } catch(e){}
         try { if (d.dash) { d.dash.show(); d.dash.visible = true; d.dash.opacity = 255; d.dash.set_opacity && d.dash.set_opacity(255); d.dash.reactive = true; } } catch(e){}
         try { if (d._background) { d._background.show(); d._background.visible = true; d._background.opacity = 255; } } catch(e){}
